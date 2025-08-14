@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Validation Alert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-left: 5px solid #ff6b6b;
+            margin-bottom: 20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .summary {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .missing-data {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚨 Data Validation Alert</h1>
+        <p><strong>Missing Data Detected in Master Spreadsheet</strong></p>
+    </div>
+    
+    <div class="content">
+        <p>Dear <strong>{{ business_unit }}</strong>,</p>
+        
+        <p>Our automated data validation process has detected missing or incomplete data in the master spreadsheet that requires your attention.</p>
+        
+        <div class="summary">
+            <h3>📊 Validation Summary</h3>
+            <ul>
+                <li><strong>File:</strong> {{ validation_result.file_path }}</li>
+                <li><strong>Total Rows:</strong> {{ validation_result.total_rows }}</li>
+                <li><strong>Total Columns:</strong> {{ validation_result.total_columns }}</li>
+                <li><strong>Validation Time:</strong> {{ timestamp }}</li>
+                <li><strong>Status:</strong> <span class="highlight">Validation Failed</span></li>
+            </ul>
+        </div>
+        
+        {% if validation_result.missing_data_details and validation_result.missing_data_details.has_missing_data %}
+        <div class="missing-data">
+            <h3>❌ Missing Data Details</h3>
+            
+            {% if validation_result.missing_data_details.missing_by_column %}
+            <h4>Missing Values by Column:</h4>
+            <ul>
+                {% for column, details in validation_result.missing_data_details.missing_by_column.items() %}
+                <li><strong>{{ column }}:</strong> {{ details.count }} missing values (Rows: {{ details.rows|join(', ') }})</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+            {% if validation_result.missing_data_details.missing_rows %}
+            <h4>Empty Rows Found:</h4>
+            <p><strong>{{ validation_result.missing_data_details.missing_rows|length }}</strong> completely empty rows detected at positions: {{ validation_result.missing_data_details.missing_rows|join(', ') }}</p>
+            {% endif %}
+            
+            {% if validation_result.missing_data_details.rows_with_many_missing %}
+            <h4>Rows with Significant Missing Data:</h4>
+            <p>The following rows have more than 50% missing data: {{ validation_result.missing_data_details.rows_with_many_missing|join(', ') }}</p>
+            {% endif %}
+            
+            <p><strong>Total Missing Values:</strong> {{ validation_result.missing_data_details.total_missing_values }}</p>
+        </div>
+        {% endif %}
+        
+        {% if validation_result.warnings %}
+        <div class="summary">
+            <h3>⚠️ Data Quality Warnings</h3>
+            <ul>
+                {% for warning in validation_result.warnings %}
+                <li>{{ warning.message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        <h3>📋 Next Steps</h3>
+        <ol>
+            <li>Review the missing data details above</li>
+            <li>Update the spreadsheet with the required information</li>
+            <li>Re-upload the file for validation</li>
+            <li>Contact the data team if you need assistance</li>
+        </ol>
+        
+        <p><strong>Please address these issues as soon as possible to ensure data processing can continue.</strong></p>
+    </div>
+    
+    <div class="footer">
+        <p>This is an automated message from the Data Validation System.</p>
+        <p>If you have any questions, please contact your data management team.</p>
+        <p><em>Generated on {{ timestamp }}</em></p>
+    </div>
+</body>
+</html>

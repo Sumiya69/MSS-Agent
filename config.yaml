@@ -1,0 +1,98 @@
+# Configuration for Data Validation Agent
+email:
+  smtp_server: "smtp.gmail.com"
+  smtp_port: 587
+  sender_email: "sumiyashaik646@gmail.com"
+  sender_password: "byiv unnt oybi ddme"  # Use app password for Gmail
+
+business_unit:
+  name: "Business Unit Data Team"
+  email: "sumiya6304871@gmail.com"
+  cc_emails:
+    - "manager@company.com"
+
+validation:
+  required_columns:
+    - "Outcome"
+    - "Outcome Number"
+    - "Outcome Statement"
+    - "Test"
+  
+  # Columns that cannot be empty
+  non_nullable_columns:
+    - "Outcome"
+    - "Outcome Statement"
+    - "Test"
+  
+  # Columns to skip during validation (quarterly/half-yearly)
+  skip_colum  python -m venv .venvns:
+    - "Q1"
+    - "Q2"
+    - "Q3"
+    - "Q4"
+    - "H1"
+    - "H2"
+    - "quarterly"
+    - "half_yearly"
+    - "half-yearly"
+  
+  # Validation rules
+  rules:
+    rank_threshold: 5
+    max_missing_percentage: 10
+    min_data_quality_score: 80
+
+file_upload:
+  max_file_size_mb: 50
+  allowed_extensions:
+    - ".xlsx"
+    - ".xls"
+  upload_directory: "./data/uploads"
+
+notification:
+  subject_template: "Data Validation Alert - Missing Data Found"
+  periodic_reminder_hours: 24
+  max_reminders: 3
+
+
+# Product frequency and deadline configuration
+product_schedule:
+  # Example product entries
+  ProductA:
+    frequency: monthly
+    deadline_day: 14  # Set to 14 for tomorrow
+    deadline_time: "09:00"  # 9:00am
+  ProductB:
+    frequency: bi-annual
+    deadline_months: [6, 12]  # June and December
+    deadline_day: 30
+  ProductC:
+    frequency: annual
+    deadline_month: 3  # March
+    deadline_day: 31
+
+app:
+  host: "localhost"
+  port: 8000
+  debug: true
+
+# Database configuration for reading data
+database:
+  type: "sqlite"  # sqlite, postgresql, mysql
+  host: "localhost"
+  port: 5432
+  database: "data_validation_db"
+  username: "user"
+  password: "password"
+  connection_string: "sqlite:///data/validation_data.db"
+  
+# Data source configuration
+data_source:
+  default_source: "upload"  # upload, database
+  database_table: "validation_data"
+  file_column: "file_data"
+  metadata_columns:
+    - "filename"
+    - "upload_date"
+    - "file_type"
+    - "sheet_names"

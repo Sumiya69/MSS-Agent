@@ -1,0 +1,92 @@
+2025-08-12 12:58:39,181 - __main__ - ERROR - File not found: path\to\your\excel\file.xlsx
+2025-08-12 13:01:47,624 - __main__ - INFO - Initializing data validation workflow...
+2025-08-12 13:01:47,625 - __main__ - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:01:47,626 - workflows.validation_workflow - INFO - Workflow started for file: data\sample_master.xlsx
+2025-08-12 13:01:47,626 - agents.data_validator - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:01:49,450 - utils.excel_parser - INFO - Successfully parsed Excel file: data\sample_master.xlsx
+2025-08-12 13:01:49,451 - utils.excel_parser - INFO - Data shape: (10, 5)
+2025-08-12 13:01:49,455 - agents.data_validator - INFO - Validation completed. Valid: False
+2025-08-12 13:01:49,455 - workflows.validation_workflow - INFO - Data validation failed - sending missing data notification
+2025-08-12 13:01:52,954 - agents.email_notifier - ERROR - SMTP error: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-76bcce8960dsm28555131b3a.34 - gsmtp')
+2025-08-12 13:01:52,955 - agents.email_notifier - ERROR - Failed to send missing data notification
+2025-08-12 13:01:52,956 - workflows.validation_workflow - INFO - Workflow finished for file: data\sample_master.xlsx
+2025-08-12 13:01:52,958 - __main__ - WARNING - Validation completed with issues
+2025-08-12 13:10:50,385 - __main__ - INFO - Initializing data validation workflow...
+2025-08-12 13:10:50,385 - __main__ - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:10:50,385 - workflows.validation_workflow - INFO - Workflow started for file: data\sample_master.xlsx
+2025-08-12 13:10:50,385 - agents.data_validator - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:10:51,762 - utils.excel_parser - INFO - Successfully parsed Excel file: data\sample_master.xlsx
+2025-08-12 13:10:51,762 - utils.excel_parser - INFO - Data shape: (10, 5)
+2025-08-12 13:10:51,762 - agents.data_validator - INFO - Validation completed. Valid: False
+2025-08-12 13:10:51,762 - workflows.validation_workflow - INFO - Data validation failed - sending missing data notification
+2025-08-12 13:10:56,396 - agents.email_notifier - INFO - Missing data notification sent successfully to ['2020cse.ra5@svck.edu.in', 'manager@company.com', 'admin@company.com']
+2025-08-12 13:10:56,399 - workflows.validation_workflow - INFO - Workflow finished for file: data\sample_master.xlsx
+2025-08-12 13:10:56,399 - __main__ - WARNING - Validation completed with issues
+2025-08-12 13:12:56,105 - __main__ - INFO - Initializing data validation workflow...
+2025-08-12 13:12:56,105 - __main__ - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:12:56,110 - workflows.validation_workflow - INFO - Workflow started for file: data\sample_master.xlsx
+2025-08-12 13:12:56,110 - agents.data_validator - INFO - Starting validation for file: data\sample_master.xlsx
+2025-08-12 13:12:58,594 - utils.excel_parser - INFO - Successfully parsed Excel file: data\sample_master.xlsx
+2025-08-12 13:12:58,594 - utils.excel_parser - INFO - Data shape: (10, 5)
+2025-08-12 13:12:58,603 - agents.data_validator - INFO - Validation completed. Valid: False
+2025-08-12 13:12:58,603 - workflows.validation_workflow - INFO - Data validation failed - sending missing data notification
+2025-08-12 13:13:03,118 - agents.email_notifier - INFO - Missing data notification sent successfully to ['2020cse.ra5@svck.edu.in', 'manager@company.com', 'admin@company.com']
+2025-08-12 13:13:03,122 - workflows.validation_workflow - INFO - Workflow finished for file: data\sample_master.xlsx
+2025-08-12 13:13:03,125 - __main__ - WARNING - Validation completed with issues
+2025-08-13 21:42:52,047 - __main__ - INFO - Initializing data validation workflow...
+2025-08-13 21:42:52,049 - __main__ - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 21:42:52,050 - workflows.validation_workflow - INFO - Workflow started for file: data\uploaded.xlsx
+2025-08-13 21:42:52,051 - agents.data_validator - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 21:42:55,294 - utils.excel_parser - INFO - Successfully parsed Excel file: data\uploaded.xlsx
+2025-08-13 21:42:55,295 - utils.excel_parser - INFO - Data shape: (16, 3)
+2025-08-13 21:42:55,296 - workflows.validation_workflow - INFO - Data validation failed - sending missing data notification
+2025-08-13 21:42:55,352 - agents.email_notifier - INFO - Initiating SMTP connection to smtp.gmail.com:587
+2025-08-13 21:42:55,352 - agents.email_notifier - INFO - Email sender: sumiyashaik646@gmail.com
+2025-08-13 21:42:55,353 - agents.email_notifier - INFO - Email recipients: ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 21:42:55,353 - agents.email_notifier - INFO - Email subject: Data Validation Alert - Missing Data Found - 2025-08-13 21:42
+2025-08-13 21:42:56,340 - agents.email_notifier - INFO - SMTP connection established, starting TLS...
+2025-08-13 21:42:56,837 - agents.email_notifier - INFO - Authenticating with SMTP server...
+2025-08-13 21:42:57,535 - agents.email_notifier - INFO - SMTP authentication successful
+2025-08-13 21:42:57,536 - agents.email_notifier - INFO - Sending email message...
+2025-08-13 21:42:59,349 - agents.email_notifier - INFO - Email sent successfully via SMTP
+2025-08-13 21:42:59,563 - agents.email_notifier - INFO - Missing data notification sent successfully to ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 21:42:59,564 - workflows.validation_workflow - INFO - Workflow finished for file: data\uploaded.xlsx
+2025-08-13 21:42:59,569 - __main__ - WARNING - Validation completed with issues
+2025-08-13 21:49:40,866 - __main__ - INFO - Initializing data validation workflow...
+2025-08-13 21:49:40,867 - __main__ - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 21:49:40,867 - workflows.validation_workflow - INFO - Workflow started for file: data\uploaded.xlsx
+2025-08-13 21:49:40,867 - agents.data_validator - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 21:49:42,943 - utils.excel_parser - INFO - Successfully parsed Excel file: data\uploaded.xlsx
+2025-08-13 21:49:42,943 - utils.excel_parser - INFO - Data shape: (16, 3)
+2025-08-13 21:49:42,944 - workflows.validation_workflow - INFO - Data validation failed - sending missing data notification
+2025-08-13 21:49:42,996 - agents.email_notifier - INFO - Initiating SMTP connection to smtp.gmail.com:587
+2025-08-13 21:49:42,997 - agents.email_notifier - INFO - Email sender: sumiyashaik646@gmail.com
+2025-08-13 21:49:42,998 - agents.email_notifier - INFO - Email recipients: ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 21:49:42,998 - agents.email_notifier - INFO - Email subject: Data Validation Alert - Missing Data Found - 2025-08-13 21:49
+2025-08-13 21:49:43,522 - agents.email_notifier - INFO - SMTP connection established, starting TLS...
+2025-08-13 21:49:44,014 - agents.email_notifier - INFO - Authenticating with SMTP server...
+2025-08-13 21:49:44,706 - agents.email_notifier - INFO - SMTP authentication successful
+2025-08-13 21:49:44,708 - agents.email_notifier - INFO - Sending email message...
+2025-08-13 21:49:46,443 - agents.email_notifier - INFO - Email sent successfully via SMTP
+2025-08-13 21:49:46,657 - agents.email_notifier - INFO - Missing data notification sent successfully to ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 21:49:46,658 - workflows.validation_workflow - INFO - Workflow finished for file: data\uploaded.xlsx
+2025-08-13 21:49:46,660 - __main__ - WARNING - Validation completed with issues
+2025-08-13 22:12:03,280 - __main__ - INFO - Initializing data validation workflow...
+2025-08-13 22:12:03,282 - __main__ - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 22:12:03,283 - workflows.validation_workflow - INFO - Workflow started for file: data\uploaded.xlsx
+2025-08-13 22:12:03,283 - agents.data_validator - INFO - Starting validation for file: data\uploaded.xlsx
+2025-08-13 22:12:05,728 - utils.excel_parser - INFO - Successfully parsed Excel file: data\uploaded.xlsx
+2025-08-13 22:12:05,728 - utils.excel_parser - INFO - Data shape: (16, 3)
+2025-08-13 22:12:05,730 - workflows.validation_workflow - INFO - Data validation passed - sending completion notification
+2025-08-13 22:12:05,759 - agents.email_notifier - INFO - Initiating SMTP connection to smtp.gmail.com:587
+2025-08-13 22:12:05,761 - agents.email_notifier - INFO - Email sender: sumiyashaik646@gmail.com
+2025-08-13 22:12:05,762 - agents.email_notifier - INFO - Email recipients: ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 22:12:05,762 - agents.email_notifier - INFO - Email subject: Data Validation Complete - No Issues Found
+2025-08-13 22:12:06,305 - agents.email_notifier - INFO - SMTP connection established, starting TLS...
+2025-08-13 22:12:06,792 - agents.email_notifier - INFO - Authenticating with SMTP server...
+2025-08-13 22:12:07,496 - agents.email_notifier - INFO - SMTP authentication successful
+2025-08-13 22:12:07,498 - agents.email_notifier - INFO - Sending email message...
+2025-08-13 22:12:09,449 - agents.email_notifier - INFO - Email sent successfully via SMTP
+2025-08-13 22:12:09,662 - agents.email_notifier - INFO - Completion notification sent successfully to ['sumiya6304871@gmail.com', 'manager@company.com']
+2025-08-13 22:12:09,663 - workflows.validation_workflow - INFO - Workflow finished for file: data\uploaded.xlsx
+2025-08-13 22:12:09,666 - __main__ - INFO - Validation completed successfully
