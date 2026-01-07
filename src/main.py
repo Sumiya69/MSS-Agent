@@ -10,8 +10,6 @@ from typing import Optional
 # Add src to path for imports
 sys.path.append(str(Path(__file__).parent))
 
-from workflows.validation_workflow import ValidationWorkflow
-from utils.config import config
 
 # Setup logging
 logging.basicConfig(
