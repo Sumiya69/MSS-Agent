@@ -20,8 +20,8 @@ streamlit==1.28.8
 
 # Testing
 pytest==7.4.3
-pytest-asyncio==0.21.1
+pytest-asyncio==0.21.2
 
 # Utilities
-aiofiles==23.2.3
+aiofiles==23.2.4
 typing-extensions==4.8.0
