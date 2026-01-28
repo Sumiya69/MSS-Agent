@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Renovate configuration for Mss agent",
+  "description": "Renovate configuration for UC06 Dependency Updater",
   "extends": [
     "config:base",
     "security:openssf-scorecard",
@@ -9,7 +9,7 @@
     ":separatePatchReleases"
   ],
   "schedule": [
-    "after 2am and before 5am on weekdays"
+    "after 2am and before 5am on every weekday"
   ],
   "timezone": "America/Los_Angeles",
   "labels": ["dependencies", "renovate"],
@@ -39,12 +39,12 @@
       "description": "Group minor and patch updates",
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "minor and patch dependencies",
-      "schedule": ["after 2am and before 5am on weekdays"]
+      "schedule": ["after 2am and before 5am on every weekday"]
     },
     {
       "description": "Major updates - separate PRs",
       "matchUpdateTypes": ["major"],
-      "schedule": ["after 2am and before 5am on weekends"],
+      "schedule": ["after 2am and before 5am on every weekend"],
       "prPriority": 5,
       "labels": ["major-update", "breaking-change"]
     },
@@ -58,7 +58,7 @@
         "google-genai",
         "pandas"
       ],
-      "schedule": ["after 2am and before 5am on weekends"],
+      "schedule": ["after 2am and before 5am on every weekend"],
       "prPriority": 8,
       "labels": ["core-dependency"]
     },
@@ -74,7 +74,7 @@
         "pytest"
       ],
       "groupName": "development dependencies",
-      "schedule": ["after 2am and before 5am on weekdays"],
+      "schedule": ["after 2am and before 5am on every weekday"],
       "prPriority": 3
     }
   ],
