@@ -1,0 +1,85 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate configuration for Mss agent",
+  "extends": [
+    "config:base",
+    "security:openssf-scorecard",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":separatePatchReleases"
+  ],
+  "schedule": [
+    "after 2am and before 5am on weekdays"
+  ],
+  "timezone": "America/Los_Angeles",
+  "labels": ["dependencies", "renovate"],
+  "reviewers": [],
+  "assignees": [],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
+  "pip_requirements": {
+    "fileMatch": ["requirements\\.txt$", "requirements.*\\.txt$"]
+  },
+  "packageRules": [
+    {
+      "description": "Security updates - high priority",
+      "matchPackagePatterns": ["*"],
+      "vulnerabilityAlerts": {
+        "enabled": true
+      },
+      "schedule": ["at any time"],
+      "prPriority": 10,
+      "labels": ["security", "urgent"]
+    },
+    {
+      "description": "Group minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "minor and patch dependencies",
+      "schedule": ["after 2am and before 5am on weekdays"]
+    },
+    {
+      "description": "Major updates - separate PRs",
+      "matchUpdateTypes": ["major"],
+      "schedule": ["after 2am and before 5am on weekends"],
+      "prPriority": 5,
+      "labels": ["major-update", "breaking-change"]
+    },
+    {
+      "description": "Core dependencies - separate handling",
+      "matchPackageNames": [
+        "aiohttp",
+        "requests",
+        "PyGithub",
+        "Flask",
+        "google-genai",
+        "pandas"
+      ],
+      "schedule": ["after 2am and before 5am on weekends"],
+      "prPriority": 8,
+      "labels": ["core-dependency"]
+    },
+    {
+      "description": "Development dependencies",
+      "matchPackageNames": [
+        "pre-commit",
+        "black",
+        "isort",
+        "flake8",
+        "mypy",
+        "bandit",
+        "pytest"
+      ],
+      "groupName": "development dependencies",
+      "schedule": ["after 2am and before 5am on weekdays"],
+      "prPriority": 3
+    }
+  ],
+  "platformAutomerge": false,
+  "automerge": false,
+  "prTitle": "{{#if isPinDigest}}{{commitMessagePrefix}} Update {{depName}} commit hash{{else}}{{#if isMajor}}{{commitMessagePrefix}} Update {{depName}} to v{{newMajor}} (major){{else}}{{#if isSingleVersion}}{{commitMessagePrefix}} Update {{depName}} to {{#if isMajor}}v{{newMajor}}{{else}}{{#if isRange}}{{newValue}}{{else}}v{{newVersion}}{{/if}}{{/if}}{{else}}{{commitMessagePrefix}} Update {{depName}}{{/if}}{{/if}}{{/if}}",
+  "prBodyTemplate": "This PR updates **{{depName}}** from `{{currentValue}}` to `{{newValue}}`.\n\n### Release Notes\n{{#if hasReleaseNotes}}{{{releaseNotes}}}{{else}}*Release notes not available*{{/if}}\n\n### UC06 Integration Notes\n- This update will be automatically analyzed by the UC06 agent\n- Security vulnerabilities and risk assessment will be provided\n- Alternative packages will be suggested if issues are detected\n\n---\n{{#if schedule}}**Schedule**: This PR was created based on the configured schedule: {{schedule}}{{/if}}\n\n**Merge Confidence**: {{#if mergeConfidence}}{{mergeConfidence}}{{else}}Unknown{{/if}}\n{{#if stabilityDays}}**Stability Days**: {{stabilityDays}}{{/if}}"
+}
