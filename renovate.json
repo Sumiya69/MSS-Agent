@@ -44,7 +44,7 @@
     {
       "description": "Major updates - separate PRs",
       "matchUpdateTypes": ["major"],
-      "schedule": ["after 2am and before 5am on every weekend"],
+      "schedule": ["after 2am and before 5am on Saturday", "after 2am and before 5am on Sunday"],
       "prPriority": 5,
       "labels": ["major-update", "breaking-change"]
     },
@@ -58,7 +58,7 @@
         "google-genai",
         "pandas"
       ],
-      "schedule": ["after 2am and before 5am on every weekend"],
+      "schedule": ["after 2am and before 5am on Saturday", "after 2am and before 5am on Sunday"],
       "prPriority": 8,
       "labels": ["core-dependency"]
     },
