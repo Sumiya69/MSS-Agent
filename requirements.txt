@@ -19,7 +19,7 @@ python-dotenv==1.0.3
 streamlit==1.28.9
 
 # Testing
-pytest==7.4.3
+pytest==7.4.4
 pytest-asyncio==0.21.2
 
 # Utilities
